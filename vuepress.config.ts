@@ -42,6 +42,17 @@ export default defineUserConfig({
         repository: "SukiSU-Ultra",
       }),
     },
+    {
+      // 挂载路径
+      mountPath: "/一加8e系列内核全",
+      // 文件解析器，这里使用githubReleasesFilesAnalysis,可以解析github的release文件
+      analysis: githubReleasesFilesAnalysis({
+        // 仓库所有者的用户名
+        user: "FrostRime",
+        // 仓库所有者的仓库名
+        repository: "android-kernel-build",
+      }),
+    },
     // ... 可以配置多个挂载路径和仓库，以此类推
   ])
 })
