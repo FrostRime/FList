@@ -10,10 +10,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Commit and push using PAT (only)
-      run: |
-        DATE=$(date -u +%Y-%m-%d)
-        sed -i "s/^title:.*$/title: \`Frost Rime Device（最近刷新：$DATE）\`,/" vuepress.config.ts
-        git add vuepress.config.ts
-        git diff --cached --quiet || git commit -m "chore: update refresh date to $DATE"
-        git remote set-url origin https://x-access-token:${{ secrets.PERSONAL_TOKEN }}@github.com/${{ github.repository }}
-        git push origin HEAD
+        run: |
+          DATE=$(date -u +%Y-%m-%d)
+          sed -i "s/^title:.*$/title: \`Frost Rime Device（最近刷新：$DATE）\`,/" vuepress.config.ts
+          git add vuepress.config.ts
+          git diff --cached --quiet || git commit -m "chore: update refresh date to $DATE"
+          git remote set-url origin https://x-access-token:${{ secrets.PERSONAL_TOKEN }}@github.com/${{ github.repository }}
+          git push origin HEAD
