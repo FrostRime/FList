@@ -19,7 +19,7 @@ jobs:
 
       - name: Update vuepress.config.ts title with time
         run: |
-          DATE=$(TZ=Asia/Shanghai date "+%Y-%m-%d %H:%M:%S")
+          DATE=$(TZ=Asia/Shanghai date "%H:%M:%S")
           echo "Date is: $DATE"
           sed -i "s/^\s*title:.*$/  title: \`Frost Rime的分享盘（最近刷新：$DATE）\`,/" vuepress.config.ts
           git config user.name github-actions
