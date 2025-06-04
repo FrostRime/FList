@@ -23,7 +23,7 @@ jobs:
           echo "Before:"
           cat vuepress.config.ts
           DATE=$(date -u +%Y-%m-%d)
-          sed -i "s/^\s*title:.*$/  title: \`Frost Rime Device（最近刷新：$DATE）\`,/" vuepress.config.ts
+          sed -i "s/^\s*title:.*$/  title: \`Frost Rime的分享盘（最近刷新：$DATE）\`,/" vuepress.config.ts
           echo "After:"
           cat vuepress.config.ts
           git add vuepress.config.ts
