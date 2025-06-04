@@ -27,4 +27,4 @@ jobs:
           git add vuepress.config.ts
           git diff --cached --quiet || git commit -m "chore: update refresh time to $TIME"
           git remote set-url origin https://x-access-token:${{ secrets.PERSONAL_TOKEN }}@github.com/${{ github.repository }}
-         git push origin HEAD
+          git push origin HEAD
