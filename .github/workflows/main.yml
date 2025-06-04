@@ -19,7 +19,7 @@ jobs:
 
       - name: Commit and push using PAT (only)
         run: |
-          DATE=$(date -u +%Y-%m-%d)
+          DATE=$(TZ=Asia/Shanghai date "+%Y-%m-%d %H:%M:%S")
           echo "Before:"
           cat vuepress.config.ts
           DATE=$(date -u +%Y-%m-%d)
