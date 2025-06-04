@@ -17,16 +17,14 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Commit and push using PAT (only)
+      - name: Update vuepress.config.ts title with time
         run: |
           DATE=$(TZ=Asia/Shanghai date "+%Y-%m-%d %H:%M:%S")
-          echo "Before:"
-          cat vuepress.config.ts
-          DATE=$(date -u +%Y-%m-%d)
+          echo "Date is: $DATE"
           sed -i "s/^\s*title:.*$/  title: \`Frost Rime的分享盘（最近刷新：$DATE）\`,/" vuepress.config.ts
-          echo "After:"
-          cat vuepress.config.ts
+          git config user.name github-actions
+          git config user.email github-actions@github.com
           git add vuepress.config.ts
-          git diff --cached --quiet || git commit -m "chore: update refresh date to $DATE"
+          git diff --cached --quiet || git commit -m "chore: update refresh time to $DATE"
           git remote set-url origin https://x-access-token:${{ secrets.PERSONAL_TOKEN }}@github.com/${{ github.repository }}
           git push origin HEAD
