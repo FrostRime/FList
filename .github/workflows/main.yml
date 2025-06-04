@@ -9,6 +9,9 @@ jobs:
   update:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
       - name: Commit and push using PAT (only)
         run: |
           DATE=$(date -u +%Y-%m-%d)
